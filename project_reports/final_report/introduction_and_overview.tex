@@ -1,0 +1,34 @@
+\section{Introduction}
+The Navier–Stokes (NS) equations describe fluid dynamics and have been applied to weather prediction, glacier dynamics, oceanography, thermal conduction, aircraft design, and architecture \cite{chorin1968numerical}. Despite their widespread use, analytic solutions exist only for a few constrained cases. As a result, the finite difference method (FDM) and finite element method (FEM) have become popular numerical approaches for obtaining approximate solutions \cite{Whiteley2017}. These methods are computationally expensive, often requiring hundreds or thousands of core-hours to produce meaningful accurate results, and the largest simulations often require specialized hardware for effective scalability \cite{michalakes2007wrf}. 
+
+
+
+Recent advances in physics informed neural networks (PINNs) allow for high resolution and physically consistent approximations of the NS equations \cite{jin2021nsfnets} \cite{baymani2015artificial} \cite{eivazi2022physics}. PINNs are supervised neural networks that take advantage of their capabilities as universal function approximators to incorporate model equations, such as partial differential equations, directly into the loss function during training \cite{Raissi2019}. This new loss term, known as the equation loss, is derived from the underlying physical system of equations accompanying the traditional mean square loss.
+
+\section{The Equations}
+The NS equations, governing the fluid flow, are expressed as:
+\begin{align}
+    \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} &= -\frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right), \\
+    \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} &= -\frac{1}{\rho} \frac{\partial p}{\partial y} + \nu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} \right), \\
+    \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} &= 0,
+\end{align}
+where \( u \) and \( v \) are the fluid velocities in the x and y directions, respectively, \( p \) is the pressure, \( \rho \) is the fluid density, and \( \nu \) is the kinematic viscosity.
+
+\section{Overview}
+This project contains the following features:
+
+\begin{enumerate}
+    \item An implementation of a modular Navier-Stokes solver using the Finite Difference Method.
+        \begin{enumerate}
+            \item A python class to define arbitrary environments and environmental conditions.
+            \item Modular boundary conditions allowing for many environment types to be investigated.
+            \item Modular and composable objects that allow for complex environments to be modeled and simulated.
+        \end{enumerate}
+    \item A Physics Informed Neural Network that approximates a Navier-Stokes solver.
+        \begin{enumerate}
+            \item A python class to initialize, train, and test the Navier-Stokes PINN model.
+            \item Input-output manager to simplify preparation of training and testing datasets.
+            \item Plotting manager to facilitate in simple visualization of model inference.
+        \end{enumerate}
+    \item Unit tests implemented with ``pytest'' and automated testing using GitHub Actions.
+\end{enumerate}

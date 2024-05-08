@@ -1,0 +1,90 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{authblk}
+\usepackage{wrapfig}
+\usepackage{natbib}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{sourcecodepro}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage[margin=1in]{geometry}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\addbibresource{references.bib}
+
+\font\titlefont=cmr12 at 15pt
+\font\titlefontlarge=cmr12 at 20pt
+
+
+\title{\titlefontlarge APC 524 Final Project:\\\titlefont Implementing a Navier-Stokes Solver and Physics Informed Neural Network for Simulating Two-Dimensional Fluid Flow Around a Cylinder}
+
+\author[1]{Fairuz Ishraque}
+\author[1]{Joseph Lockwood}
+\author[2]{Aaron Spaulding}
+\affil[1]{Department of Geosciences}
+\affil[2]{Department of Civil and Environmental Engineering}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+\newpage 
+\tableofcontents
+
+\newpage
+\setcounter{page}{1}
+
+\input{project_reports/final_report/introduction_and_overview}
+
+\rule{\linewidth}{0.5pt}
+\section{Joseph Lockwood's Contributions}
+\input{project_reports/final_report/contributions_joseph}
+
+\rule{\linewidth}{0.5pt}
+\section{Aaron Spaulding's Contributions}
+\input{project_reports/final_report/contributions_aaron}
+
+\rule{\linewidth}{0.5pt}
+\newpage
+\section{Fairuz Ishraque's Contributions}
+\input{project_reports/final_report/contributions_ishraque}
+
+\newpage
+\section{Conclusion}
+In this project, we have used the Navier-Stokes equations to investigate an important test case of turbulent fluid flow. We have built a user-accessible and highly modular algorithmic Navier-Stokes solver and simulated the cylinder wake flow phenomena. We have also implemented a physics informed neural network and used it to run inversions on a cylinder wake flow dataset for an unknown pressure field. Future steps include additional rigorous testing of the project code and better integration of the finite difference and the PINN solvers.
+\newpage
+\printbibliography
+
+
+\end{document}
